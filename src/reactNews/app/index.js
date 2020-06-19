@@ -4,13 +4,25 @@ import Axios from 'axios';
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------Unused Class-----------------------------------------------------------
-/*class News extends Component {
+/*class News extends React.Component {
+  //solution from https://stackoverflow.com/questions/46733354/use-async-await-with-axios-in-react-js
+  async lookup() {
+    const response = await Axios.get('http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-19&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1');
+    return await res.json();
+  }
+
   constructor(props) {
     super(props);
     this.state = {
-      articles: []
+      articles: null
     }
-    this.search();
+    search();
+  }
+  componentDidMount() {
+    if (!this.state.articles) {
+      this.lookup().then(data => this.setState({data}))
+        .catch(err => console.log(error));
+    }
   }
 
 //recreating the BookWalker app
@@ -18,7 +30,7 @@ import Axios from 'axios';
     Axios.get('http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-19&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1')
     .then(response => response.json())
     .then(json => {
-      console.log('articles', json);
+      console.log(json);
       let { articles } = json;
       this.setState({articles});
     });
@@ -26,9 +38,7 @@ import Axios from 'axios';
 
   render() {
     return (
-      <div>
-        {this.articles}
-      </div>
+      <div>{this.articles}</div>
     )
   }
 }*/
