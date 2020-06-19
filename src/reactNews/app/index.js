@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------Unused Class-----------------------------------------------------------
 /*class News extends Component {
   constructor(props) {
     super(props);
@@ -11,6 +13,7 @@ import Axios from 'axios';
     this.search();
   }
 
+//recreating the BookWalker app
   search() {
     Axios.get('http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-19&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1')
     .then(response => response.json())
@@ -24,11 +27,12 @@ import Axios from 'axios';
   render() {
     return (
       <div>
-        {this.state.articles}
+        {this.articles}
       </div>
     )
   }
 }*/
+//-----------------------------------------------------------------------------------------------------------------------------------
 
 function loadAPI() {
   Axios({
@@ -49,7 +53,20 @@ function iterateArt(response) {
 
   res.forEach(arr => {
     console.log(arr.title);
-    return document.getElementById('root').innerHTML = `
+    return document.getElementById('root').innerHTML =
+    `
+    <div style="background-color:#f3852a;color:black;width:300px;height:500px" class="limit">
+      <h3 class="text-center">${arr.title}</h3>
+      <p class="display-9 text-center">
+        ${arr.author} <br><br>
+        <h7 class="text-center"style="bold">Published: ${arr.publishedAt} <br></h7>
+        Description: ${arr.description} <br>
+        </p>
+    </div>
+    `;
+    //-----------------------------------------------------------------------------------------------------------------------------------
+    //------------------------------------------------Unused innerHTML (Bad gateway)-----------------------------------------------------
+    /*`
     <div style="background-color:#f3852a;color:black;width:300px;height:500px" class="limit">
       <a href={arr.url}>
         <img
@@ -67,33 +84,9 @@ function iterateArt(response) {
         <a href={arr.url}>link</a>
         </p>
     </div>
-    `;
+    `;*/
+    //-----------------------------------------------------------------------------------------------------------------------------------
   });
-
-//problem idea: https://stackoverflow.com/questions/56542774/how-to-use-map-with-data-from-axios-response
-  /*const responseArr = response.data.articles;
-  //Add console.log(arr) below to show the map is working.
-  const resArray = responseArr.map(arr => {
-    return document.getElementById('root').innerHTML = `
-    <div style="background-color:  #f3852a;color:black;width:300px;height:500px" class="limit">
-      <a href={arr.url}>
-        <img
-          ng-src={arr.urlToImage}
-          alt="image not avaliable"
-          style="width:300px;height:400px;"
-          position="center"
-        />
-      </a>
-      <h3 class="text-center">${arr.title}</h3>
-      <p class="display-9 text-center">
-        ${arr.author} <br><br>
-        <h7 class="text-center"style="bold">Published: ${arr.publishedAt} <br></h7>
-        Description: ${arr.description} <br>
-        <a href={arr.url}>link</a>
-        </p>
-    </div>
-    `;
-  });*/
 }
 
 loadAPI();
