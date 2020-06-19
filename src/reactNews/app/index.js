@@ -8,11 +8,11 @@ import Axios from 'axios';
     this.state = {
       articles: []
     }
-    search();
+    this.search();
   }
 
   search() {
-    Axios.get('http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-18&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1')
+    Axios.get('http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-19&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1')
     .then(response => response.json())
     .then(json => {
       console.log('articles', json);
@@ -33,7 +33,10 @@ import Axios from 'axios';
 function loadAPI() {
   Axios({
     method: 'get',
-    url: 'http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-18&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1'
+    url: 'http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-19&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1',
+    params: {
+      language: 'en'
+    }
   })
     .then(response => iterateArt(response))
     .catch(err => console.error(err));
@@ -44,7 +47,7 @@ function iterateArt(response) {
   //Add console.log(arr) below to show the map is working.
   const resArray = responseArr.map(arr => {
     return document.getElementById('root').innerHTML = `
-    <div style="background-color:  #f3852a  ;color:black;width:300px;height:500px">
+    <div style="background-color:  #f3852a;color:black;width:300px;height:500px" class="limit">
       <a href={arr.url}>
         <img
           ng-src={arr.urlToImage}
