@@ -44,11 +44,13 @@ function loadAPI() {
 }
 
 function iterateArt(response) {
+  //forEach troubleshooting from https://stackoverflow.com/questions/46141450/create-li-from-loop-through-array-and-display-to-html-as-a-list
   const res = response.data.articles;
 
   res.forEach(arr => {
+    console.log(arr.title);
     return document.getElementById('root').innerHTML = `
-    <div style="background-color:  #f3852a;color:black;width:300px;height:500px" class="limit">
+    <div style="background-color:#f3852a;color:black;width:300px;height:500px" class="limit">
       <a href={arr.url}>
         <img
           ng-src={arr.urlToImage}
@@ -68,6 +70,7 @@ function iterateArt(response) {
     `;
   });
 
+//problem idea: https://stackoverflow.com/questions/56542774/how-to-use-map-with-data-from-axios-response
   /*const responseArr = response.data.articles;
   //Add console.log(arr) below to show the map is working.
   const resArray = responseArr.map(arr => {
