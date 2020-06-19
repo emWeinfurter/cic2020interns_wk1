@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-//import './build.index.css';
 import Axios from 'axios';
 
 /*class Sad extends Component {
@@ -42,24 +41,28 @@ function loadAPI() {
 
 function iterateArt(response) {
   const responseArr = response.data.articles;
+  //Add console.log(arr) below to show the map is working.
   const resArray = responseArr.map(arr => {
     return document.getElementById('root').innerHTML = `
-    <div>
-      <p class="display-5 text-center mb-3" style="font-size:20px">${arr.title} <br></p>
+    <div style="background-color:  #f3852a  ;color:black;width:300px;height:500px">
+      <a href={arr.url}>
+        <img
+          ng-src={arr.urlToImage}
+          alt="image not avaliable"
+          style="width:300px;height:400px;"
+          position="center"
+        />
+      </a>
+      <h3 class="text-center">${arr.title}</h3>
       <p class="display-9 text-center">
-        ${arr.author} <br>
-        ${arr.publishedAt} <br>
-        ${arr.description}
+        ${arr.author} <br><br>
+        <h7 class="text-center"style="bold">Published: ${arr.publishedAt} <br></h7>
+        Description: ${arr.description} <br>
+        <a href={arr.url}>link</a>
         </p>
     </div>
     `;
   });
-
-  /*return (<div>
-  {response.data.articles.map((el) => (
-    <ul>Author: {el.author} Title: {el.title}</ul>
-  ))}
-  </div>);*/
 }
 
 loadAPI();

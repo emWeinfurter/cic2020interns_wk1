@@ -17,7 +17,8 @@ module.exports = {
    },
   devServer: {
     port: 3000,
-    contentBase: path.resolve(__dirname, 'build')
+    contentBase: path.resolve(__dirname, 'build'),
+    historyApiFallback: true
   },
   devtool: 'inline-source-map'
 }
