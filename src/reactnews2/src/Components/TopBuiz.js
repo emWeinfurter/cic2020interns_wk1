@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Card } from 'react-bootstrap';
 import Axios from 'axios';
-import './NewsList.css';
+//import './NewsList.css';
 
-export default class NewsList extends React.Component {
+export default class TopBiz extends React.Component {
   state = {
     articles: []
   };
@@ -11,7 +11,7 @@ export default class NewsList extends React.Component {
   componentDidMount() {
     Axios({
       method: 'get',
-      url: 'http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-22&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1',
+      url: 'http://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=92373e995c97437a974ef496fabf8ab1',
       params: {
         language: 'en',
         sortBy: 'relevancy'
@@ -25,7 +25,7 @@ export default class NewsList extends React.Component {
   render() {
     return(
       <Container>
-        <h1 class="display-3 text-center" body="padding-top: 56px; padding-bottom: 56px">BitCoin</h1>
+          <h1 class="display-3 text-center" body="padding-top: 56px; padding-bottom: 56px">Top Business</h1>
           {this.state.articles.map(articles => 
           <div class="table-responsive-sm">
             <table class="table">

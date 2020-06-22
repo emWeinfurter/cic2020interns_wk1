@@ -1,16 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
+
 import App from './App';
+import Business from './TopBusiness';
+import Apple from './Apple';
+import TechCrunch from './TechCrunch';
+import WallStreet from './WallStreet';
+
 import * as serviceWorker from './serviceWorker';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-ReactDOM.render(
+const routing = (
+  <Router>
+    <div>
+      <Route exact path="/" component={App} />
+      <Route path="/business" component={Business} />
+      <Route path="/apple" component={Apple} />
+      <Route path="/techcrunch" component={TechCrunch} />
+      <Route path="/wallstreet" component={WallStreet} />
+    </div>
+  </Router>
+)
+
+ReactDOM.render(routing, document.getElementById('root'));
+
+/*ReactDOM.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
-);
+);*/
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

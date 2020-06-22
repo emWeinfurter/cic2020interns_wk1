@@ -33,13 +33,25 @@
     <title>NewsEasies</title>
   </head>
   <body>
+    <h1 class="display-2 text-center" body="padding-top: 56px">NewsEasies</h1>
+    <hr/>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <a href="http://localhost:3000/" class="btn btn-primary btn-block" role="button">BitCoin</a>
+          <a href="http://localhost:3000/business" class="btn btn-primary btn-block" role="button">Top Business</a>
+          <a href="http://localhost:3000/apple" class="btn btn-primary btn-block" role="button">Apple</a>
+          <a href="http://localhost:3000/techCrunch" class="btn btn-primary btn-block" role="button">Tech Crunch</a>
+          <a href="http://localhost:3000/wallstreet" class="btn btn-primary btn-block" role="button">Wall Street</a>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
     <style>
       body {
         background:  #4baceb 
       }
     </style>
-    <h1 class="display-2 text-center" body="padding-top: 56px">NewsEasies</h1>
-    <hr/>
     <div id="root"></div>
     <!--
       This HTML file is a template.
