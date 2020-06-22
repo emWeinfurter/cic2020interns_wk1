@@ -11,7 +11,7 @@ export default class NewsList extends React.Component {
   componentDidMount() {
     Axios({
       method: 'get',
-      url: 'http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-21&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1',
+      url: 'http://newsapi.org/v2/everything?q=bitcoin&from=2020-05-22&sortBy=publishedAt&apiKey=92373e995c97437a974ef496fabf8ab1',
       params: {
         language: 'en',
         sortBy: 'relevancy'
